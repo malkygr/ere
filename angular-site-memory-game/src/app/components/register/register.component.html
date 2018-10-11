@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="card"></div>
+    <div class="card">
+      <h1 class="title">Rgister</h1>
+      <form novalidate (ngSubmit)="submitRegisterSave()" [formGroup]="formGroup">
+  
+  
+        <div class="input-container" *ngFor="let x of obj.keys(formGroup.controls)">
+          <input type="text" id="#{label}" placeholder="{{x}}" formControlName="{{x}}">
+          <label for="#{label}">{{x}}:</label>
+          <div class="bar"></div>
+          <div class="error" *ngIf="formGroup.controls[x].errors&&formGroup.controls[x].touched">
+            <p *ngFor="let err of obj.values(formGroup.controls[x].errors)">{{err}}</p>
+        </div>
+  
+        </div>
+  
+  
+        <div class="button-container">
+          <button type="submit" [disabled]="formGroup.invalid"><span>Sign in</span></button>
+        </div>
+      </form>
+    </div>
+    <div class="card alt">
+      <div class="toggle"></div>
+      <h1 class="title">Register
+        <div class="close"></div>
+      </h1>
+    </div>
+  </div>

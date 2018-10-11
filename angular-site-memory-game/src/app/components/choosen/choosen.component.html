@@ -1,0 +1,15 @@
+<h1>Chosen partner</h1>
+<table class="rwd-table">
+  <tr>
+    <th>name</th>
+    <th>age</th>
+    <th>choose</th>
+  </tr>
+
+  <tr *ngFor="let user of listChoosePartners">
+    <td>{{user.UserName}}</td>
+    <td>{{user.Age}}</td>
+    <td><button (click)="choosePartner(user)">choose</button></td>
+  </tr>
+</table>
+<p *ngIf="!listChoosePartners">there isn't any one waiting!</p>

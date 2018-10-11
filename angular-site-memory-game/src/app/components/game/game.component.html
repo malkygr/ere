@@ -1,0 +1,24 @@
+<div class="container">
+    <header>
+        <h1>Matching Game</h1>
+    </header>
+    <p>your name: {{currentUser.UserName}} </p>
+    <p> your partner: {{currentPartner.UserName}}</p>
+    <p>currect player now {{PlayerNow}}</p>
+    <p>your score {{currentUser.Score}}</p>
+    <p>partner score {{currentPartner.Score}}</p>
+
+
+    <section class="gameboard">
+        <ul>
+            <li *ngFor="let card of listRandomCardsFix;let i=index">
+                <button [disabled]="currentUser.UserName!=PlayerNow || card.value!=null" (click)="clicked(card)" data-value={{i}}>
+                    <p *ngIf="card.value==null">?</p>
+                    <p *ngIf="card.value!=null"> {{card.key}}</p>
+                </button>
+            </li>
+        </ul>
+
+
+    </section>
+</div>
